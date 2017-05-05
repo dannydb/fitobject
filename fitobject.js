@@ -18,8 +18,8 @@
    * the container based on the fit parameter according to the behavior of the
    * 'cover' and 'contain' values of the CSS background-size property.
    * @author: Danny DeBelius
-   * @param  {Object} object    A jQuery-wrapped DOM element
-   * @param  {Object} container A jQuery-wrapped DOM element
+   * @param  {Object} object    A DOM element or selector string
+   * @param  {Object} container A DOM element or selector string
    * @param  {[type]} fit       The fit behavior - either 'cover' or 'contain'.
    */
 	return function fitObject(object, container, fit) {
