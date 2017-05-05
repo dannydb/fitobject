@@ -1,0 +1,16 @@
+{
+  "name": "fitobject",
+  "version": "0.1.0",
+  "description": "Fit an object to cover or be contained by its container.",
+  "main": "fitobject.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dannydb/fitobject.git"
+  },
+  "author": "Danny DeBelius",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dannydb/fitobject/issues"
+  },
+  "homepage": "https://github.com/dannydb/fitobject"
+}
