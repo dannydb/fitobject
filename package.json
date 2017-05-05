@@ -5,7 +5,7 @@
   "main": "fitobject.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/dannydb/fitobject.git"
+    "url": "git+https://github.com/dannydb/fitobject.git"
   },
   "author": "Danny DeBelius",
   "license": "MIT",
