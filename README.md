@@ -2,6 +2,8 @@
 
 Given an object and its container, size and position the object to fit the container based on the fit parameter according to the behavior of the 'cover' and 'contain' values of the CSS background-size property.
 
+[Codepen Example](http://codepen.io/dannydb/pen/Qvmrme)
+
 ## Install
 ```
 npm install fitobject
