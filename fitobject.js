@@ -1,5 +1,5 @@
 /**
- * @preserve fitobject - v0.2.1 - 2017-05-11
+ * @preserve fitobject - v0.2.2 - 2017-05-11
  * Fit an object to cover or be contained by its container.
  * https://github.com/dannydb/fitobject
  * Copyright (c) 2017 Danny DeBelius; Licensed MIT
