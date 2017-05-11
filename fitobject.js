@@ -1,17 +1,19 @@
 /**
- * @preserve fitobject - v0.2.0 - 2017-05-05
+ * @preserve fitobject - v0.2.1 - 2017-05-11
  * Fit an object to cover or be contained by its container.
  * https://github.com/dannydb/fitobject
  * Copyright (c) 2017 Danny DeBelius; Licensed MIT
  */
 
-(function(factory) {
-  if (typeof define === 'function' && define.amd) {
+(function (root, factory) {
+  if (typeof define === "function" && define.amd) {
     define(['jquery'], factory);
+  } else if (typeof module === "object" && module.exports) {
+    module.exports = factory(require("jquery"));
   } else {
-    factory(jQuery);
+    root.fitObject = factory(root.jQuery);
   }
-}(function($) {
+}(this, function($) {
   var $object = null;
   var $container = null;
   var $objectWrapper = null;
@@ -105,6 +107,11 @@
       $object.wrap($objectWrapper);
     } else {
       $objectWrapper.css(newCss);
+    }
+
+    // Make sure object will be positioned relative to its container
+    if ($container.css('position') === 'static') {
+      $container.css('position', 'relative');
     }
 	}
 
