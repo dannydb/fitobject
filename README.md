@@ -17,7 +17,6 @@ npm install fitobject
 </div>
 
 <script>
-  var fitObject = require('fitobject');
   fitObject('.object', '.container', 'cover');
 </script>
 ```
