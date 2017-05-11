@@ -42,12 +42,12 @@
 23 silly publish   license: 'MIT',
 23 silly publish   bugs: { url: 'https://github.com/dannydb/fitobject/issues' },
 23 silly publish   homepage: 'https://github.com/dannydb/fitobject',
-23 silly publish   readme: '# fitobject\n\nGiven an object and its container, size and position the object to fit the container based on the fit parameter according to the behavior of the \'cover\' and \'contain\' values of the CSS background-size property.\n\n## Install\n```\nnpm install fitobject\n```\n\n## Usage\n\n```html\n<div class="container">\n  <img class="object" src="http://placehold.it/400x300" />\n</div>\n\n<script>\n  var fitObject = require(\'fitobject\');\n  fitObject(\'.object\', \'.container\', \'cover\');\n</script>\n```\n\nThe third argument specifies how the object should be fit to its container. Specify either `\'cover\'` or `\'contain\'`.\n\nThe `fitObject` function also accepts a "safe area" as a fourth, optional argument an object. When the object fit method is set to `\'cover\'`, the safe area can define a region of the object to avoid cropping into.\n\n<img src="https://cloud.githubusercontent.com/assets/419297/25910766/8b30a470-357f-11e7-850e-d11e7889f4ed.png" width="400" />\n\nHere is the above example again with a safe area defined:\n\n```js\nvar safeArea = {\n  \'top\': 25,   // 25% of the vertical dimension from the top\n  \'right\': 0,  // 0% of the horizontal dimension from the right\n  \'bottom\': 0, // 0% of the vertical dimension from the bottom\n  \'left\': 50   // 50% of the horizontal dimension from the left\n}\n\nfitObject(\'.object\', \'.container\', \'cover\', safeArea);\n```\n',
+23 silly publish   readme: '# fitobject\n\nGiven an object and its container, size and position the object to fit the container based on the fit parameter according to the behavior of the \'cover\' and \'contain\' values of the CSS background-size property.\n\n[Codepen Example](http://codepen.io/dannydb/pen/Qvmrme)\n\n## Install\n```\nnpm install fitobject\n```\n\n## Usage\n\n```html\n<div class="container">\n  <img class="object" src="http://placehold.it/400x300" />\n</div>\n\n<script>\n  var fitObject = require(\'fitobject\');\n  fitObject(\'.object\', \'.container\', \'cover\');\n</script>\n```\n\nThe third argument specifies how the object should be fit to its container. Specify either `\'cover\'` or `\'contain\'`.\n\nThe `fitObject` function also accepts a "safe area" as a fourth, optional argument an object. When the object fit method is set to `\'cover\'`, the safe area can define a region of the object to avoid cropping into.\n\n<img src="https://cloud.githubusercontent.com/assets/419297/25910766/8b30a470-357f-11e7-850e-d11e7889f4ed.png" width="400" />\n\nHere is the above example again with a safe area defined:\n\n```js\nvar safeArea = {\n  \'top\': 25,   // 25% of the vertical dimension from the top\n  \'right\': 0,  // 0% of the horizontal dimension from the right\n  \'bottom\': 0, // 0% of the vertical dimension from the bottom\n  \'left\': 50   // 50% of the horizontal dimension from the left\n}\n\nfitObject(\'.object\', \'.container\', \'cover\', safeArea);\n```\n',
 23 silly publish   readmeFilename: 'README.md',
-23 silly publish   gitHead: 'fad45b602f6534ce9752f07d75104a468b915c6b',
+23 silly publish   gitHead: 'c32afdcfff332cbc26fb81da7f4c22d39c39a9b5',
 23 silly publish   _id: 'fitobject@0.2.1',
 23 silly publish   scripts: {},
-23 silly publish   _shasum: '2e2de676b1b61130894ec259a87819b347b781ba',
+23 silly publish   _shasum: 'b6a8cd1cb5945a7c83af8b01a52a100dbca11519',
 23 silly publish   _from: '.' }
 24 info lifecycle fitobject@0.2.1~prepublishOnly: fitobject@0.2.1
 25 silly lifecycle fitobject@0.2.1~prepublishOnly: no script for prepublishOnly, continuing
@@ -68,22 +68,22 @@
 33 silly publish uploading /Users/206888/.npm/fitobject/0.2.1/package.tgz
 34 verbose request uri https://registry.npmjs.org/fitobject
 35 verbose request sending authorization for write operation
-36 info attempt registry request try #1 at 3:16:18 PM
+36 info attempt registry request try #1 at 3:24:00 PM
 37 verbose request using bearer token for auth
-38 verbose request id 78dd73a0c20dd7e1
+38 verbose request id 792484591ec67de2
 39 http request PUT https://registry.npmjs.org/fitobject
 40 http 403 https://registry.npmjs.org/fitobject
 41 verbose headers { 'content-type': 'application/json',
 41 verbose headers   'cache-control': 'max-age=300',
 41 verbose headers   'content-length': '95',
 41 verbose headers   'accept-ranges': 'bytes',
-41 verbose headers   date: 'Thu, 11 May 2017 19:16:19 GMT',
+41 verbose headers   date: 'Thu, 11 May 2017 19:24:00 GMT',
 41 verbose headers   via: '1.1 varnish',
 41 verbose headers   connection: 'keep-alive',
-41 verbose headers   'x-served-by': 'cache-jfk8121-JFK',
+41 verbose headers   'x-served-by': 'cache-jfk8123-JFK',
 41 verbose headers   'x-cache': 'MISS',
 41 verbose headers   'x-cache-hits': '0',
-41 verbose headers   'x-timer': 'S1494530178.492261,VS0,VE647',
+41 verbose headers   'x-timer': 'S1494530640.903635,VS0,VE533',
 41 verbose headers   vary: 'Accept-Encoding' }
 42 verbose request invalidating /Users/206888/.npm/registry.npmjs.org/fitobject on PUT
 43 error publish Failed PUT 403
