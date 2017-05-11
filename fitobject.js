@@ -113,6 +113,11 @@
     if ($container.css('position') === 'static') {
       $container.css('position', 'relative');
     }
+
+    // Make sure the container overflow is hidden
+    if ($container.css('overflow') === 'hidden') {
+      $container.css('overflow', 'hidden');
+    }
 	}
 
   /**
