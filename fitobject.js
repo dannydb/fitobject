@@ -1,6 +1,6 @@
 /**
- * @preserve fitobject - v0.2.3 - 2017-05-11
- * Fit an object to cover or be contained by its container.
+ * @preserve fitobject - v0.3.0 - 2017-05-11
+ * Size and position an object to fit its container.
  * https://github.com/dannydb/fitobject
  * Copyright (c) 2017 Danny DeBelius; Licensed MIT
  */
@@ -25,6 +25,16 @@
   var horizontalOffset = null;
   var verticalOffset = null;
 
+  var options = {
+    fit: 'cover',
+    safeArea: {
+      'top': 0,
+      'right': 0,
+      'bottom': 0,
+      'left': 0
+    }
+  }
+
   /**
    * Given an object and its container, size and position the object to fit
    * the container based on the fit parameter according to the behavior of the
@@ -32,18 +42,14 @@
    * @author: Danny DeBelius
    * @param  {Object} object    A jQuery-wrapped DOM element
    * @param  {Object} container A jQuery-wrapped DOM element
-   * @param  {String} fit       The fit behavior - either 'cover' or 'contain'.
-   * @param  {Object} safeArea  Area to avoid cropping into (optional)
+   * @param  {Object} params    Configuration options
    */
-	var fitObject = function (object, container, fit, safeArea) {
+	var fitObject = function (object, container, params) {
     var newCss = null;
 
-    safeArea = safeArea || {
-      'top': 0,
-      'right': 0,
-      'bottom': 0,
-      'left': 0
-    };
+    if (params) {
+      options = $.extend(options, params);
+    }
 
     $object = $(object);
     $container = $(container);
@@ -59,25 +65,25 @@
     horizontalOffset = ($container.width() - fullObjectWidth) / 2;
     verticalOffset = ($container.height() - fullObjectHeight) / 2;
 
-    if (fit === 'cover' && isShallowObject){
+    if (options['fit'] === 'cover' && isShallowObject){
       newCss = {
         height: $container.height(),
         width: fullObjectWidth,
-        left: handleCropBias(horizontalOffset, 'horizontal', safeArea),
+        left: handleCropBias(horizontalOffset, 'horizontal'),
         top: 0
       }
     }
 
-    if (fit === 'cover' && !isShallowObject){
+    if (options['fit'] === 'cover' && !isShallowObject){
       newCss = {
         height: fullObjectHeight,
         width: $container.width(),
         left: 0,
-        top: handleCropBias(verticalOffset, 'vertical', safeArea)
+        top: handleCropBias(verticalOffset, 'vertical')
       }
     }
 
-    if (fit === 'contain' && isShallowObject){
+    if (options['fit'] === 'contain' && isShallowObject){
       newCss = {
         height: fullObjectHeight,
         width: $container.width(),
@@ -86,7 +92,7 @@
       }
     }
 
-    if (fit === 'contain' && !isShallowObject){
+    if (options['fit'] === 'contain' && !isShallowObject){
       newCss = {
         height: $container.height(),
         width: fullObjectWidth,
@@ -128,7 +134,8 @@
    * @param  {Object} safeArea  Area to avoid cropping into
    * @return {Number}           The modified offset
    */
-  var handleCropBias = function (offset, direction, safeArea) {
+  var handleCropBias = function (offset, direction) {
+    var safeArea = options['safeArea'];
     var verticalBias = (safeArea['bottom'] - safeArea['top']) / 100;
     var horizontalBias = (safeArea['right'] - safeArea['left']) / 100;
     var pixelsCropped = null;
