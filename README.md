@@ -87,7 +87,7 @@ Object data attributes will supercede parameters passed into the `fitObject` met
 ## List of parameters
 
 |Parameter | Data Attribute | Type | Default | Description |
-|-|-|-|-|-|
-| `container` | `fit-container` | String, DOM Node or jQuery DOM element |  | The container to fit the object to |
+|---|---|---|---|---|
+| `container` | `fit-container` | String, DOM Node, jQuery DOM element | First parent not classed `.fit-object-wrapper` | The container to fit the object to |
 | `fit` | `object-fit` | String | `'cover'` | The fit method – either `'cover'` or `'contain'` |
 | `safeArea` | `safe-area` | Object | ` { 'top': 0, 'right': 0, 'bottom': 0, 'left': 0 }` | An area of the object to avoid cropping into. Specify a percentage of the X or Y dimension for each side. |
