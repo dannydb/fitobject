@@ -26,9 +26,7 @@ For simple cover fitting of an object to a container:
 You can size and position the object to be totally contained inside the container, as with the CSS property `background-size: contain`:
 
 ```js
-$('.object').fitObject({
-  'fit': 'contain'
-});
+$('.object').fitObject('contain');
 ```
 
 ### Cover fit safe area
@@ -48,18 +46,18 @@ $('.object').fitObject({
 ```
 
 ### Non-immediate ancestor fit container
-By default, `fitObject` will fit your object to its immediate parent, but can fit to ancestors further up the DOM tree by setting the `container` parameter:
+By default, `fitObject` will fit your object to its immediate parent, but can fit to ancestors further up the DOM tree by setting the `container` parameter, assuming any parents between are set to `position: static`.
 
 ```html
-<div class="container-wrapper">
-  <div class="container">
+<div class="container">
+  <div class="foo">
     <img class="object" src="http://placehold.it/400x300" />
   </div>
 </div>
 
 <script>
   $('.object').fitObject({
-    'container': '.container-wrapper'
+    'container': '.container'
   });
 </script>
 ```

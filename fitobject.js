@@ -1,5 +1,5 @@
 /**
- * @preserve fitobject - v0.4.5 - 2017-05-11
+ * @preserve fitobject - v0.4.6 - 2017-05-11
  * Size and position an object to fit its container.
  * https://github.com/dannydb/fitobject
  * Copyright (c) 2017 Danny DeBelius; Licensed MIT
@@ -41,7 +41,13 @@
         }
       }
 
-      $objectWrapper = $object.parents('.fit-object-wrapper');
+      if (params && typeof(params) === 'object') {
+        options = $.extend(options, params);
+      }
+
+      if (params && typeof(params) === 'string') {
+        options['fit'] = params;
+      }
 
       if ($object.data('safe-area')) {
         options['safeArea'] = $object.data('safe-area');
@@ -55,17 +61,8 @@
         options['container'] = $object.data('fit-container');
       }
 
-      if (params) {
-        options = $.extend(options, params);
-      }
-
-      if ($objectWrapper.length === 0 && options['container'] === null) {
-        $container = $object.parent();
-      } else if (options['container'] === null) {
-        $container = $objectWrapper.parent();
-      } else {
-        $container = $(options['container']);
-      }
+      $objectWrapper = $object.parents('.fit-object-wrapper');
+      $container = getContainer($object, $objectWrapper, options);
 
       // Make sure the container has dimensions before starting calculations.
       $container.css({
@@ -136,6 +133,27 @@
       updatePosition($object, $objectWrapper, $container, newCss);
     })
 	}
+
+  /**
+   * Get the element that will act as the object's container
+   * @param  {Object} $object        The object
+   * @param  {Object} $objectWrapper The object fit wrapper
+   * @param  {Object} options        The object fit params
+   * @return {Object}                The object's container
+   */
+  var getContainer = function($object, $objectWrapper, options) {
+    var $container = null;
+
+    if ($objectWrapper.length === 0 && options['container'] === null) {
+      $container = $object.parent();
+    } else if (options['container'] === null) {
+      $container = $objectWrapper.parent();
+    } else {
+      $container = $(options['container']);
+    }
+
+    return $container;
+  }
 
   /**
    * Apply the new position CSS to the object
