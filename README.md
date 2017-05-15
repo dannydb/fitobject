@@ -1,6 +1,6 @@
 # fitobject
 
-Size and position an object to fit its container.
+A jQuery plugin to fit an object to its container.
 
 [Codepen Example](http://codepen.io/dannydb/pen/Qvmrme)
 
