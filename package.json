@@ -1,6 +1,6 @@
 {
   "name": "fitobject",
-  "version": "0.4.6",
+  "version": "0.4.7",
   "description": "A jQuery plugin to fit an object to its container.",
   "main": "fitobject.js",
   "repository": {
