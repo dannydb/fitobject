@@ -11,10 +11,7 @@ npm install fitobject
 
 ## Usage
 
-To do a simple cover fit of an object to a container, call `fitObject` with two arguments:
-
-- A selector or jQuery wrapped DOM element for the object.
-- A selector or jQuery wrapped DOM element for the container.
+For simple cover fitting of an object to a container:
 
 ```html
 <div class="container">
@@ -22,26 +19,25 @@ To do a simple cover fit of an object to a container, call `fitObject` with two 
 </div>
 
 <script>
-  fitObject('.object', '.container');
+  $('.object').fitObject();
 </script>
 ```
 
-You can also size and position the object to be totally contained inside the container, as with the CSS property `background-size: contain`.
+You can size and position the object to be totally contained inside the container, as with the CSS property `background-size: contain`:
 
 ```js
-fitObject('.object', '.container', {
+$('.object').fitObject({
   'fit': 'contain'
 });
-
 ```
 
-Finally, `fitObject` also accepts a `safeArea` parameter to define a region of the object to avoid cropping into when the object fit method is set to `'cover'`.
+### Cover fit safe area
+Specify a `safeArea` parameter to define a region of the object to avoid cropping into when the object fit method is set to `'cover'`.
 
 <img src="https://cloud.githubusercontent.com/assets/419297/25910766/8b30a470-357f-11e7-850e-d11e7889f4ed.png" width="400" />
 
 ```js
-fitObject('.object', '.container', {
-  'fit': 'cover',
+$('.object').fitObject({
   'safeArea': {
     'top': 25,   // 25% of the vertical dimension from the top
     'right': 0,  // 0% of the horizontal dimension from the right
@@ -50,3 +46,48 @@ fitObject('.object', '.container', {
   }
 });
 ```
+
+### Non-immediate ancestor fit container
+By default, `fitObject` will fit your object to its immediate parent, but can fit to ancestors further up the DOM tree by setting the `container` parameter:
+
+```html
+<div class="container-wrapper">
+  <div class="container">
+    <img class="object" src="http://placehold.it/400x300" />
+  </div>
+</div>
+
+<script>
+  $('.object').fitObject({
+    'container': '.container-wrapper'
+  });
+</script>
+```
+
+### Object data attributes
+
+Each of the `fitObject` parameters can be set via HTML data attributes on the object to fit:
+
+```html
+<div class="container">
+  <img class="object" src="http://placehold.it/400x300"
+    data-object-fit="cover"
+    data-fit-container=".container"
+    data-safe-area="{'top':0,'right':21.23,'bottom':0,'left':19.33}"
+  />
+</div>
+
+<script>
+  $('.object').fitObject();
+</script>
+```
+
+Object data attributes will supercede parameters passed into the `fitObject` method.
+
+## List of parameters
+
+|Parameter | Data Attribute | Type | Default | Description |
+|-|-|-|-|-|
+| `container` | `fit-container` | String, DOM Node or jQuery DOM element |  | The container to fit the object to |
+| `fit` | `object-fit` | String | `'cover'` | The fit method – either `'cover'` or `'contain'` |
+| `safeArea` | `safe-area` | Object | ` { 'top': 0, 'right': 0, 'bottom': 0, 'left': 0 }` | An area of the object to avoid cropping into. Specify a percentage of the X or Y dimension for each side. |
