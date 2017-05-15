@@ -1,6 +1,6 @@
 {
   "name": "fitobject",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Fit an object to its container.",
   "main": "fitobject.js",
   "repository": {

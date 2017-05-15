@@ -1,5 +1,5 @@
 /**
- * @preserve fitobject - v0.4.0 - 2017-05-11
+ * @preserve fitobject - v0.4.1 - 2017-05-11
  * Size and position an object to fit its container.
  * https://github.com/dannydb/fitobject
  * Copyright (c) 2017 Danny DeBelius; Licensed MIT
@@ -48,7 +48,7 @@
       }
 
       if ($object.data('object-fit')) {
-        options['fit'] = $object.data('fit');
+        options['fit'] = $object.data('object-fit');
       }
 
       if ($object.data('fit-container')) {
