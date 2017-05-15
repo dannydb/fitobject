@@ -82,7 +82,7 @@ Each of the `fitObject` parameters can be set via HTML data attributes on the ob
 </script>
 ```
 
-Object data attributes will supercede parameters passed into the `fitObject` method.
+Object data attributes will supersede parameters passed into the `fitObject` method.
 
 ## List of parameters
 
