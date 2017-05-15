@@ -1,6 +1,6 @@
-# fitobject
+# fitObject
 
-A jQuery plugin to fit an object to its container.
+A jQuery plugin to fit an object to its container according to a fit parameter that behaves similarly to the CSS `background-size` keyword syntax.
 
 [Codepen Example](http://codepen.io/dannydb/pen/Qvmrme)
 
